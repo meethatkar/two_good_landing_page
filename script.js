@@ -33,6 +33,8 @@ ScrollTrigger.refresh();
  document.addEventListener("DOMContentLoaded", (event) => {
   gsap.registerPlugin(ScrollTrigger);
   locomotive();
+  page_1();
+  page_2();
   // gsap code here!
 });
 
@@ -63,4 +65,115 @@ function card_hover(){
     })
 }
 
-card_hover();
+function page_1(){
+
+  gsap.to("#up-img, #down-img",{
+    scrollTrigger:{
+      start: "top 10%",
+      end: "top 0%",
+      // markers: true,
+      scroller: "main",
+      trigger: "#page-1",
+      scrub: true
+    },
+    y: "-150%",
+    ease: "power1.inOut",
+    
+  })
+
+  gsap.to("#nav-btns",{
+    scrollTrigger:{
+      start: "top 10%",
+      end: "top 0%",
+      // markers: true,
+      scroller: "main",
+      trigger: "#page-1",
+      scrub: true
+    },
+    y: "-190%",
+    ease: "power1.inOut",
+    
+  })
+
+  let pg1_tl = gsap.timeline();
+
+  pg1_tl.from("#page-1 h1",{
+    y:200,
+    duration:0.9,
+    stagger:0.2
+  })
+
+  pg1_tl.from("#page-1 img",{
+    opacity:0,
+    scale: 0.9,
+    y:10,
+    duration: 1
+  },"=-0.7")
+}
+
+function page_2(){
+  let pg2_tl = gsap.timeline({
+    scrollTrigger:{
+      start: "top 90%",
+      end: "top 70%",
+      scroller: "main",
+      trigger:"#page-2",
+      // markers: true,
+      scrub: true,
+    }
+  })
+
+  pg2_tl.from("#p2-part-1 h2",{
+    y:50,
+    opacity:0,
+    scale: 0.9,
+  })
+
+  pg2_tl.from("#p2-part-1 p",{
+    y:50,
+    opacity:0,
+    scale: 0.9,
+  })
+
+  pg2_tl.from("#p2-part-1 a",{
+    y:50,
+    opacity:0,
+    scale: 0.9,
+  })
+
+  gsap.from("#p2-part-2",{
+    scrollTrigger:{
+      start: "top 85%",
+      end: "top 65%",
+      scroller: "main",
+      trigger:"#p2-part-2",
+      // markers: true,
+      scrub: true,
+    },
+    // y:50,
+    width:0,
+    opacity:0,
+    scale: 0.9,
+    ease: "sine.out"
+  })
+
+  gsap.from(".card",{
+    scrollTrigger:{
+      start: "top 75%",
+      end: "top 50%",
+      scroller: "main",
+      trigger:"#p2-part-3",
+      // markers: true,
+      scrub: true,
+    },
+    // y:5,
+    // x:-5,
+    // width:0,
+    opacity:0,
+    scale: 1.05,
+    stagger: 0.5,
+    ease: "power1.inOut"
+  })
+}
+
+window.innerWidth>768?card_hover():"";

@@ -9,7 +9,7 @@ body{
 body::-webkit-scrollbar{
     display: none;
 }
-#page-1>h1{
+#page-1 h1{
     font-family:Arial, Helvetica, sans-serif;
     font-weight: 900;
     font-size: 14vw;
@@ -27,4 +27,19 @@ body::-webkit-scrollbar{
 
 .img-1,.img-2{
     scale: 0;
+}
+
+svg path{
+    mix-blend-mode:difference;
+    /* fill: #007bff; Blue fill color */
+    /* stroke: black;
+    stroke-width: 2px;
+    opacity: 0.8; */
+}
+
+@media (max-width:768px){
+    #page-1 h1{
+        font-size: 12vw;
+        letter-spacing: -0.1rem;
+    }
 }
