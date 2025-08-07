@@ -36,6 +36,7 @@ ScrollTrigger.refresh();
   page_1();
   page_2();
   page_4();
+  footer();
   // gsap code here!
 });
 
@@ -205,6 +206,55 @@ function page_4(){
       start: "top 80%",
       end: "top 65%",
       // markers: true
+    }
+  })
+}
+
+function footer(){
+  let a_tags_left = document.querySelectorAll("#mid-footer-left a");
+  let a_tags_right = document.querySelectorAll("#mid-footer-right a");
+  gsap.from(a_tags_left,{
+    opacity:0,
+    x: -5,
+    scale:0.9,
+    stagger:0.3,
+    scrollTrigger:{
+      scroller:"main",
+      trigger:"#mid-footer",
+      start:"top 80%",
+      end: "top 70%",
+      // markers: true,
+      // scrub:2,
+    }
+  })  
+
+  gsap.from(a_tags_right,{
+    opacity:0,
+    x: 5,
+    scale:0.9,
+    stagger:0.3,
+    scrollTrigger:{
+      scroller:"main",
+      trigger:"#mid-footer",
+      start:"top 80%",
+      end: "top 70%",
+      // markers: true,
+      // scrub:2,
+    }
+  })  
+
+  let svg_path = document.querySelectorAll("#mid-footer-mid>svg path");
+  console.log(svg_path);
+  gsap.from(svg_path,{
+    opacity:0,
+    scale:1.1,
+    stagger:0.2,
+    scrollTrigger:{
+      scroller:"main",
+      trigger:"#mid-footer-mid",
+      start:"top 80%",
+      end:"top 70%",
+      // markers: true,
     }
   })
 }
