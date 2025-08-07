@@ -35,6 +35,7 @@ ScrollTrigger.refresh();
   locomotive();
   page_1();
   page_2();
+  page_4();
   // gsap code here!
 });
 
@@ -149,6 +150,7 @@ function page_2(){
       trigger:"#p2-part-2",
       // markers: true,
       scrub: true,
+      // pin:true
     },
     // y:50,
     width:0,
@@ -160,7 +162,7 @@ function page_2(){
   gsap.from(".card",{
     scrollTrigger:{
       start: "top 75%",
-      end: "top 50%",
+      end: "top 35%",
       scroller: "main",
       trigger:"#p2-part-3",
       // markers: true,
@@ -175,5 +177,70 @@ function page_2(){
     ease: "power1.inOut"
   })
 }
+
+function page_4(){
+  let upper_img_ = document.querySelector("#p4-upper");
+  let lower_img = document.querySelector("#p4-lower");
+  
+  gsap.from(upper_img_,{
+    opacity:0,
+    scale:0.9,
+    y:10,
+    scrollTrigger:{
+      trigger: upper_img_,
+      scroller: "main",
+      start: "top 80%",
+      end: "top 65%",
+      // markers: true
+    }
+  })
+
+  gsap.from(lower_img,{
+    opacity:0,
+    scale:0.9,
+    y:10,
+    scrollTrigger:{
+      trigger: lower_img,
+      scroller: "main",
+      start: "top 80%",
+      end: "top 65%",
+      // markers: true
+    }
+  })
+}
+
+
+function cursor(){
+  let crsr = document.querySelector("#cursor");
+  document.querySelector("main").addEventListener("mousemove",(dets)=>{
+    crsr.style.top = `${dets.clientY-30}px`;
+    crsr.style.left = `${dets.clientX-30}px`;
+  })
+
+  document.querySelector("#page-4").addEventListener("mousemove",()=>{
+    crsr.style.scale = "6";
+    crsr.style.height = "40px";
+    crsr.style.width = "40px";
+    crsr.style.opacity = "0.3";
+  })
+  document.querySelector("#page-4").addEventListener("mouseleave",()=>{
+    crsr.style.scale = "0";
+  })
+
+  document.querySelector("#upper-left").addEventListener("mousemove",()=>{
+    crsr.style.backgroundColor = "#E6C619";
+  })
+  document.querySelector("#upper-right").addEventListener("mousemove",()=>{
+    crsr.style.backgroundColor = "#FEA4AA";
+  })
+  document.querySelector("#lower-left").addEventListener("mousemove",()=>{
+    crsr.style.backgroundColor = "#B9FA00";
+  })
+  document.querySelector("#lower-right").addEventListener("mousemove",()=>{
+    crsr.style.backgroundColor = "#A1BDFC";
+  })
+}
+
+cursor();
 
 window.innerWidth>768?card_hover():"";

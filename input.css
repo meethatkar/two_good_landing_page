@@ -29,17 +29,20 @@ body::-webkit-scrollbar{
     scale: 0;
 }
 
-svg path{
-    mix-blend-mode:difference;
-    /* fill: #007bff; Blue fill color */
-    /* stroke: black;
-    stroke-width: 2px;
-    opacity: 0.8; */
+#mid-footer a:hover{
+    color: rgb(0,0,0,0.5);
 }
+
 
 @media (max-width:768px){
     #page-1 h1{
         font-size: 12vw;
+        letter-spacing: -0.1rem;
+    }
+}
+@media (min-width:1500px) {
+    #page-1 h1{
+        font-size: 13vw;
         letter-spacing: -0.1rem;
     }
 }
