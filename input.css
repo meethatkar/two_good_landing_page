@@ -1,16 +1,23 @@
 @import "tailwindcss";
 @import url('https://fonts.googleapis.com/css2?family=Roboto+Condensed:ital,wght@0,100..900;1,100..900&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap');
 
-body{
+body {
     font-family: "Roboto";
     height: 100%;
     width: 100%;
 }
-body::-webkit-scrollbar{
+
+body::-webkit-scrollbar {
     display: none;
 }
-#page-1 h1{
-    font-family:Arial, Helvetica, sans-serif;
+
+body::selection {
+    color: white;
+    background-color: black;
+}
+
+#page-1 h1 {
+    font-family: Arial, Helvetica, sans-serif;
     font-weight: 900;
     font-size: 14vw;
     letter-spacing: -0.5rem;
@@ -18,34 +25,57 @@ body::-webkit-scrollbar{
     /* background-color: antiquewhite; */
 }
 
-.card span{
+.card span {
     font-family: Arial, Helvetica, sans-serif;
 }
 
-.card-btn-part-2{
+.card-btn-part-2 {
     height: 0px;
     padding: 0;
     border-radius: 32px;
     opacity: 0;
 }
 
-.img-1,.img-2{
+.img-1,
+.img-2 {
     scale: 0;
 }
 
-#mid-footer a:hover{
-    color: rgb(0,0,0,0.5);
+#mid-footer a:hover {
+    color: rgb(0, 0, 0, 0.5);
+}
+
+.menu-btn-dets {
+    display: flex;
+    flex-direction: column;
+    font-size: 1vmax;
+}
+
+.menu-btn-dets h5 {
+    margin-bottom: 2vmin;
+    color: rgba(255, 255, 255, 0.545);
+}
+
+#links h4 {
+    transform: translateY(100%);
 }
 
 
-@media (max-width:768px){
-    #page-1 h1{
+@media (max-width:768px) {
+    #page-1 h1 {
         font-size: 12vw;
         letter-spacing: -0.1rem;
     }
+
+    .menu-btn-dets {
+        font-size: 2vmax;
+        white-space: nowrap;
+        width: 35%;
+    }
 }
+
 @media (min-width:1500px) {
-    #page-1 h1{
+    #page-1 h1 {
         font-size: 13vw;
         letter-spacing: -0.1rem;
     }

@@ -36,6 +36,7 @@ ScrollTrigger.refresh();
   page_1();
   page_2();
   page_4();
+  menu()
   footer();
   // gsap code here!
 });
@@ -259,6 +260,60 @@ function footer(){
   })
 }
 
+function menu(){
+  let btn = document.querySelector("#menu-btns");
+  let open_btn = document.querySelector("#open-btn");
+  let close_btn = document.querySelector("#close-btn");
+  let menu_div = document.querySelector("#menu");
+  let nav_div = document.querySelector("nav");
+  
+  open_btn.addEventListener("click",()=>{
+    // alert("clickde");
+    menu_div.style.height = "100%";
+    menu_div.style.opacity = "1";
+    menu_div.style.zIndex = "45";
+    window.innerWidth>768? menu_div.style.padding = "15vmin 3vmax 3vmax 3vmax":menu_div.style.padding = "25vmin 3vmax 3vmax 3vmax";
+    nav_div.style.color = "white";
+    close_btn.style.display="initial";
+    open_btn.style.display="none";
+    btn.style.backgroundColor="#111";
+
+    gsap.to("#links h4",{
+      y:0,
+      ease: "power1.out",
+      stagger:0.1,
+      duration:0.5,
+      delay:0.5
+    })
+
+    gsap.from(".menu-btn-dets",{
+      height: 0,
+      opacity:0,
+      duration:0.7,
+      delay: 0.5
+    })
+  })
+
+close_btn.addEventListener("click",()=>{
+    // alert("clickde");
+    menu_div.style.height = "0%";
+    menu_div.style.opacity = "0";
+    menu_div.style.zIndex = "35";
+    menu_div.style.padding = "0 0 0 0";
+    nav_div.style.color = "black";
+    close_btn.style.display="none";
+    open_btn.style.display="initial";
+    btn.style.backgroundColor="#F7F7F7";
+
+    gsap.to("#links h4",{
+      y:"100%",
+      ease: "power1.out",
+      stagger:0.1,
+      duration:0.5,
+      // delay:0.5
+    })
+  })
+}
 
 function cursor(){
   let crsr = document.querySelector("#cursor");
