@@ -2,7 +2,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto+Condensed:ital,wght@0,100..900;1,100..900&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap');
 
 body{
-    font-family: "Roboto Condensed";
+    font-family: "Roboto";
     height: 100%;
     width: 100%;
 }
@@ -16,6 +16,10 @@ body::-webkit-scrollbar{
     letter-spacing: -0.5rem;
     line-height: 0.9;
     /* background-color: antiquewhite; */
+}
+
+.card span{
+    font-family: Arial, Helvetica, sans-serif;
 }
 
 .card-btn-part-2{
